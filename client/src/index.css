@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: "iOS Emoji";
+  src: url("/attached_assets/iOS 17.4 emoji by Jamesitok_1749621464294.ttf") format("truetype");
+  font-display: swap;
+  unicode-range: U+1F600-1F64F, U+1F300-1F5FF, U+1F680-1F6FF, U+1F1E0-1F1FF, U+2600-26FF, U+2700-27BF;
+}
+
+:root {
+  --background: #18181b;
+  --foreground: #ffffff;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --popover: #18181b;
+  --popover-foreground: #ffffff;
+  --card: #18181b;
+  --card-foreground: #ffffff;
+  --border: #27272a;
+  --input: #27272a;
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: #ffffff;
+  --secondary: #27272a;
+  --secondary-foreground: #ffffff;
+  --accent: #27272a;
+  --accent-foreground: #ffffff;
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: #ffffff;
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  
+  /* Custom NEET App Colors */
+  --jet: #18181b;
+  --jet-light: #27272a;
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+.dark {
+  --background: #18181b;
+  --foreground: #ffffff;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --popover: #18181b;
+  --popover-foreground: #ffffff;
+  --card: #18181b;
+  --card-foreground: #ffffff;
+  --border: #27272a;
+  --input: #27272a;
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: #ffffff;
+  --secondary: #27272a;
+  --secondary-foreground: #ffffff;
+  --accent: #27272a;
+  --accent-foreground: #ffffff;
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: #ffffff;
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    background: #18181b;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    background: rgba(39, 39, 42, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+
+  .ios-card {
+    background: rgba(39, 39, 42, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transform: translateZ(0);
+  }
+
+  .ios-button {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ios-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .ios-button:active {
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+  }
+
+  .nav-btn.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-btn.active span {
+    font-weight: 600;
+  }
+
+  .ios-shadow-sm {
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.15),
+      0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .ios-shadow {
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.25),
+      0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .ios-shadow-lg {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
